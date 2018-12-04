@@ -8,4 +8,43 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DatePickerDialog" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--My styles-->
+    <style name="editTextStyle">
+        <item name="met_baseColor">@color/colorAccent</item>
+        <item name="met_primaryColor">@color/colorAccent</item>
+        <item name="met_errorColor">#fd4747</item>
+        <!--<item name="android:inputType">text</item>-->
+        <item name="met_floatingLabel">highlight</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="met_floatingLabelTextSize">16sp</item>
+        <item name="met_floatingLabelAlwaysShown">true</item>
+        <item name="met_autoValidate">true</item>
+        <item name="met_clearButton">true</item>
+        <item name="met_helperTextColor">@color/colorLightBlack</item>
+    </style>
+
+    <style name="textViewStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="spinnerStyle">
+        <item name="android:background">@drawable/spinner_bg</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
 </resources>
