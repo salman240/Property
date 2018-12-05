@@ -5,7 +5,9 @@
     <string name="Property">Property</string>
     <string name="find_your_happy">Find Your Happy</string>
     <string name="search_properties_for_sale_and_to_rent_in_the_uk">Search properties for sale and to rent in the UK</string>
-    <string name="new_here">New here?</string>
     <string name="create_an_account">Create an Account</string>
+    <string name="already_an_user">Already have an account?</string>
+    <string name="sign_in_instead">Sign in</string>
+    <string name="new_here">New here?</string>
 
 </resources>

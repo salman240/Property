@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.salmangeforce.property.Model.User;
@@ -50,7 +50,7 @@ public class SigninActivity extends AppCompatActivity {
     Button btnSignin;
 
     @BindView(R.id.parent)
-    RelativeLayout parent;
+    ScrollView parent;
 
     private Unbinder unbinder;
 
@@ -268,7 +268,7 @@ public class SigninActivity extends AppCompatActivity {
 
 
     //helper methods
-    public void openSignup(View view)
+    public void openSignin(View view)
     {
         Intent intent = new Intent(SigninActivity.this, SignupActivity.class);
         startActivity(intent);

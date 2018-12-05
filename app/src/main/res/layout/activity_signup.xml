@@ -1,112 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:id="@+id/parent"
     tools:context=".SignupActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editTextName"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card"
+            android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:met_floatingLabelText="Name"
-            android:text="Salman"
-            android:inputType="textCapSentences"
-            app:met_helperText="Enter your name"
-            style="@style/editTextStyle" />
+            app:cardBackgroundColor="@color/cardBg"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/editTextFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:inputType="textCapWords"
+                    app:met_floatingLabelText="FirstName"
+                    app:met_helperText="Enter your First Name"
+                    style="@style/editTextStyle" />
 
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editTextEmail"
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/editTextLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:layout_margin="16dp"
+                    android:layout_below="@id/editTextFirstName"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:met_floatingLabelText="Last Name"
+                    app:met_helperText="Enter your Last Name"
+                    style="@style/editTextStyle" />
+
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:inputType="textEmailAddress"
+                    app:met_floatingLabelText="Email"
+                    android:layout_below="@+id/editTextLastName"
+                    app:met_helperText="Enter your Email"
+                    style="@style/editTextStyle" />
+
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:layout_margin="16dp"
+                    android:layout_below="@id/editTextEmail"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:met_floatingLabelText="Password"
+                    app:met_helperText="Enter your Password"
+                    style="@style/editTextStyle" />
+
+                <Button
+                    android:id="@+id/buttonSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="16dp"
+                    android:text="@string/sign_up"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/colorAccent"
+                    android:layout_below="@id/editTextPassword"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/already_exists"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="s@s.com"
-            android:inputType="textEmailAddress"
-            app:met_floatingLabelText="Email"
-            app:met_helperText="Enter your email"
-            style="@style/editTextStyle" />
+            android:layout_below="@id/card"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:textAlignment="center"
+            android:text="@string/already_an_user" />
 
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editTextPassword"
+        <com.rey.material.widget.TextView
+            android:id="@+id/sign_in_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:text="12345678"
-            android:layout_margin="16dp"
-            app:met_floatingLabelText="Password"
-            app:met_helperText="Enter your Password"
-            style="@style/editTextStyle"/>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editTextConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:text="12345678"
-            android:layout_margin="16dp"
-            app:met_floatingLabelText="Confirm Password"
-            app:met_helperText="Enter your first confirm password"
-            style="@style/editTextStyle" />
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@id/already_exists"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:text="@string/sign_in_instead"
+            />
 
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editTextCompanyName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:inputType="text"
-            android:text="IT CLAS"
-            app:met_floatingLabelText="Company Name"
-            app:met_helperText="Enter your company name"
-            style="@style/editTextStyle"/>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editTextAddress"
-            style="@style/editTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
-            android:text="Walton Road"
-            android:layout_margin="16dp"
-            app:met_floatingLabelText="Address"
-            app:met_helperText="Enter your address" />
-
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editTextPhone"
-            style="@style/editTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:text="03234380625"
-            android:layout_margin="16dp"
-            app:met_floatingLabelText="Phone Number"
-            app:met_helperText="Enter your phone number" />
-
-        <Button
-            android:id="@+id/buttonSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/btn_reg_back"
-            android:text="@string/sign_up"
-            android:textColor="@android:color/white"
-            android:textSize="22sp" />
-
-
-    </LinearLayout>
-
+    </RelativeLayout>
 
 </ScrollView>
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<ScrollView-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--tools:context=".SignupActivity">-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingTop="16dp"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/editTextName"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="16dp"-->
+            <!--app:met_floatingLabelText="Name"-->
+            <!--android:text="Salman"-->
+            <!--android:inputType="textCapSentences"-->
+            <!--app:met_helperText="Enter your name"-->
+            <!--style="@style/editTextStyle" />-->
+
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/editTextEmail"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="16dp"-->
+            <!--android:text="s@s.com"-->
+            <!--android:inputType="textEmailAddress"-->
+            <!--app:met_floatingLabelText="Email"-->
+            <!--app:met_helperText="Enter your email"-->
+            <!--style="@style/editTextStyle" />-->
+
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/editTextPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:text="12345678"-->
+            <!--android:layout_margin="16dp"-->
+            <!--app:met_floatingLabelText="Password"-->
+            <!--app:met_helperText="Enter your Password"-->
+            <!--style="@style/editTextStyle"/>-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/editTextConfirmPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:text="12345678"-->
+            <!--android:layout_margin="16dp"-->
+            <!--app:met_floatingLabelText="Confirm Password"-->
+            <!--app:met_helperText="Enter your first confirm password"-->
+            <!--style="@style/editTextStyle" />-->
+
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/editTextCompanyName"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="16dp"-->
+            <!--android:inputType="text"-->
+            <!--android:text="IT CLAS"-->
+            <!--app:met_floatingLabelText="Company Name"-->
+            <!--app:met_helperText="Enter your company name"-->
+            <!--style="@style/editTextStyle"/>-->
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/editTextAddress"-->
+            <!--style="@style/editTextStyle"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="textPostalAddress"-->
+            <!--android:text="Walton Road"-->
+            <!--android:layout_margin="16dp"-->
+            <!--app:met_floatingLabelText="Address"-->
+            <!--app:met_helperText="Enter your address" />-->
+
+
+        <!--<com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--android:id="@+id/editTextPhone"-->
+            <!--style="@style/editTextStyle"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="phone"-->
+            <!--android:text="03234380625"-->
+            <!--android:layout_margin="16dp"-->
+            <!--app:met_floatingLabelText="Phone Number"-->
+            <!--app:met_helperText="Enter your phone number" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/buttonSignUp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="16dp"-->
+            <!--android:background="@drawable/btn_reg_back"-->
+            <!--android:text="@string/sign_up"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="22sp" />-->
+
+
+    <!--</LinearLayout>-->
+
+
+<!--</ScrollView>-->

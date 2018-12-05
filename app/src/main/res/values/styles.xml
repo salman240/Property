@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -23,7 +23,7 @@
     <style name="editTextStyle">
         <item name="met_baseColor">@color/colorAccent</item>
         <item name="met_primaryColor">@color/colorAccent</item>
-        <item name="met_errorColor">#fd4747</item>
+        <item name="met_errorColor">#bc2a2a</item>
         <!--<item name="android:inputType">text</item>-->
         <item name="met_floatingLabel">highlight</item>
         <item name="android:layout_marginBottom">16dp</item>

@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.salmangeforce.property.Utils.HelperMethods;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,39 +23,24 @@ import butterknife.Unbinder;
 
 public class SignupActivity extends AppCompatActivity {
 
-    @BindView(R.id.editTextName)
-    MaterialEditText etName;
-
     @BindView(R.id.editTextEmail)
     MaterialEditText etEmail;
+
+    @BindView(R.id.editTextFirstName)
+    MaterialEditText etFirstName;
+
+    @BindView(R.id.editTextLastName)
+    MaterialEditText etLastName;
 
     @BindView(R.id.editTextPassword)
     MaterialEditText etPassword;
 
-    @BindView(R.id.editTextConfirmPassword)
-    MaterialEditText etConfirmPassword;
-
-    @BindView(R.id.editTextCompanyName)
-    MaterialEditText etCompany;
-
-    @BindView(R.id.editTextAddress)
-    MaterialEditText etAddress;
-
-    @BindView(R.id.editTextPhone)
-    MaterialEditText etPhone;
-    
-    @BindView(R.id.buttonSignUp)
-    Button btnSignup;
-
     private Unbinder unbinder;
 
-    private boolean nameTouched;
+    private boolean firstNameTouched;
+    private boolean lastNameTouched;
     private boolean emailTouched;
     private boolean passwordTouched;
-    private boolean confirmPasswordTouched;
-    private boolean companyTouched;
-    private boolean addressTouched;
-    private boolean phoneTouched;
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
@@ -84,13 +68,7 @@ public class SignupActivity extends AppCompatActivity {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus && v.getId() == R.id.editTextName)
-                {
-                    nameTouched = true;
-                    if(etName.getText().toString().equals(""))
-                        etName.setError("Name is required");
-                }
-                else if(hasFocus && v.getId() == R.id.editTextEmail)
+                if(hasFocus && v.getId() == R.id.editTextEmail)
                 {
                     emailTouched = true;
                     if(etEmail.getText().toString().equals(""))
@@ -102,44 +80,29 @@ public class SignupActivity extends AppCompatActivity {
                     if(etPassword.getText().toString().equals(""))
                         etPassword.setError("Password is required");
                 }
-                else if(hasFocus && v.getId() == R.id.editTextConfirmPassword)
+
+                else if(!hasFocus && v.getId() == R.id.editTextFirstName)
                 {
-                    confirmPasswordTouched = true;
-                    if(etConfirmPassword.getText().toString().equals(""))
-                        etConfirmPassword.setError("Confirm Password is required");
+                    firstNameTouched = true;
+                    if(etFirstName.getText().toString().equals(""))
+                        etFirstName.setError("First Name is required");
                 }
-                else if(hasFocus && v.getId() == R.id.editTextCompanyName)
+                else if(hasFocus && v.getId() == R.id.editTextLastName)
                 {
-                    companyTouched = true;
-                    if(etCompany.getText().toString().equals(""))
-                        etCompany.setError("Company is required");
-                }
-                else if(hasFocus && v.getId() == R.id.editTextAddress)
-                {
-                    addressTouched = true;
-                    if(etAddress.getText().toString().equals(""))
-                        etAddress.setError("Address is required");
-                }
-                else if(hasFocus && v.getId() == R.id.editTextPhone)
-                {
-                    phoneTouched = true;
-                    if(etPhone.getText().toString().equals(""))
-                        etPhone.setError("Phone is required");
+                    lastNameTouched = true;
+                    if(etLastName.getText().toString().equals(""))
+                        etLastName.setError("Last Name is required");
                 }
             }
         };
 
-        etName.setOnFocusChangeListener(onFocusChangeListener);
         etEmail.setOnFocusChangeListener(onFocusChangeListener);
         etPassword.setOnFocusChangeListener(onFocusChangeListener);
-        etConfirmPassword.setOnFocusChangeListener(onFocusChangeListener);
-        etCompany.setOnFocusChangeListener(onFocusChangeListener);
-        etAddress.setOnFocusChangeListener(onFocusChangeListener);
-        etPhone.setOnFocusChangeListener(onFocusChangeListener);
-
+        etFirstName.setOnFocusChangeListener(onFocusChangeListener);
+        etLastName.setOnFocusChangeListener(onFocusChangeListener);
 
         //Text watcher
-        etName.addTextChangedListener(new TextWatcher() {
+        etFirstName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -148,13 +111,38 @@ public class SignupActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(Objects.requireNonNull(etName.getText()).toString().equals(""))
+                if(Objects.requireNonNull(etFirstName.getText()).toString().equals(""))
                 {
-                    etName.setError("Name is required");
+                    etFirstName.setError("First Name is required");
                 }
                 else
                 {
-                    etName.setError(null);
+                    etFirstName.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        etLastName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(Objects.requireNonNull(etLastName.getText()).toString().equals(""))
+                {
+                    etLastName.setError("Last Name is required");
+                }
+                else
+                {
+                    etLastName.setError(null);
                 }
             }
 
@@ -221,113 +209,6 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        etConfirmPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!HelperMethods.isPasswordValid(etConfirmPassword.getText().toString()))
-                {
-                    etConfirmPassword.setError("Password must contain 8 or more characters");
-                }
-                else if(etConfirmPassword.getText().toString().equals(""))
-                {
-                    etConfirmPassword.setError("Confirm Password is required");
-                }
-                else if(!etConfirmPassword.getText().toString().equals(Objects.requireNonNull(etPassword.getText()).toString()))
-                {
-                    etConfirmPassword.setError("Password do not match");
-                }
-                else
-                {
-                    etConfirmPassword.setError(null);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        etAddress.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(Objects.requireNonNull(etAddress.getText()).toString().equals(""))
-                {
-                    etAddress.setError("Phone is required");
-                }
-                else
-                {
-                    etAddress.setError(null);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        etCompany.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(Objects.requireNonNull(etCompany.getText()).toString().equals(""))
-                {
-                    etCompany.setError("Company name is required");
-                }
-                else
-                {
-                    etCompany.setError(null);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        etPhone.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(Objects.requireNonNull(etPhone.getText()).toString().equals(""))
-                {
-                    etPhone.setError("Phone is required");
-                }
-                else
-                {
-                    etPhone.setError(null);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
 
         //Button onclick listener
