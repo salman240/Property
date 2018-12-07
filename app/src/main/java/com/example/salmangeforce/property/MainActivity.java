@@ -12,11 +12,13 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.mancj.materialsearchbar.SimpleOnSearchActionListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +33,17 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.searchBar)
     MaterialSearchBar materialSearchBar;
 
-    @BindView(R.id.card)
-    CardView cardView;
+    @BindView(R.id.img_prop_maps)
+    ImageView imageViewPropertyMap;
+
+    @BindView(R.id.img_explore)
+    ImageView imageViewExplore;
+
+    @BindView(R.id.img_stories)
+    ImageView imageViewStories;
+
+    @BindView(R.id.cardPropertyMap)
+    CardView cardViewPropertyMap;
 
     private FirebaseAuth firebaseAuth;
     private boolean isDoublePressed;
@@ -46,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         unbinder = ButterKnife.bind(this);
 
+        //suggestion list on search bar
         suggested = new ArrayList<>();
         suggested.add("Lahore");
         suggested.add("Karachi");
@@ -54,10 +66,15 @@ public class MainActivity extends AppCompatActivity {
         suggested.add("Quetta");
         suggested.add("Qasoor");
 
-        materialSearchBar.setCardViewElevation(4);
+        materialSearchBar.setCardViewElevation(0);
         materialSearchBar.setLastSuggestions(suggested);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        //Setting images using Picasso
+        Picasso.with(this).load(R.drawable.map_pod).fit().into(imageViewPropertyMap);
+        Picasso.with(this).load(R.drawable.sb).fit().into(imageViewExplore);
+        Picasso.with(this).load(R.drawable.castle_bench_still).fit().into(imageViewStories);
 
         //search bar listeners
         materialSearchBar.addTextChangeListener(new TextWatcher() {
@@ -96,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
             public void onSearchConfirmed(CharSequence text) {
                 if(text.length() > 0) {
                     Toasty.info(MainActivity.this, "Showing Results in next century", Toast.LENGTH_LONG, true).show();
-                    cardView.setVisibility(View.VISIBLE);
                     materialSearchBar.disableSearch();
 //                    search(text);
                 }
@@ -112,6 +128,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        cardViewPropertyMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

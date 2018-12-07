@@ -11,5 +11,18 @@
     <string name="new_here">New here?</string>
     <string name="remember_me">Remember Me?</string>
     <string name="sign_out">Sign Out</string>
+    <string name="for_sale">For Sale</string>
+    <string name="for_rent">For Rent</string>
+    <string name="discover_all_properties">Discover all properties avaiable for sale or rent on our site.</string>
+    <string name="see_the_latest_prices">See the latest prices that properties actually sold for. Search by postcode, area and even street.</string>
+    <string name="kim_and_maria_took_a"><![CDATA[Kim and Maria took a leap of faith and started a B&B in a castle near Glasgow.]]></string>
+    <string name="we_bought_a_scottish_castle">We bought a Scottish castle</string>
+    <string name="moving_stories">Moving stories</string>
+    <string name="explore_sold_prices">Explore sold prices</string>
+    <string name="featured_content">Featured content</string>
+    <string name="image_not_found">Image Not Found</string>
+    <string name="map_search">Map search</string>
+    <string name="property_maps">Property maps</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
