@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.salmangeforce.property"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -48,5 +48,5 @@ dependencies {
     api 'com.github.f0ris.sweetalert:library:1.5.1'
 
     implementation 'com.github.rey5137:material:1.2.5'
-
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.1'
 }

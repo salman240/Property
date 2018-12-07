@@ -14,13 +14,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:replace="android:icon">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
+
         </activity>
         <activity android:name=".SigninActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".SignupActivity" android:windowSoftInputMode="stateHidden"/>

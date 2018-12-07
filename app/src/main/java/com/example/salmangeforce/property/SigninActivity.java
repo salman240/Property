@@ -60,9 +60,9 @@ public class SigninActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +70,7 @@ public class SigninActivity extends AppCompatActivity {
         unbinder = ButterKnife.bind(this);
         Paper.init(this);
 
-
-        getSupportActionBar().setTitle("Sign In");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Sign In");
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(true);
@@ -79,7 +78,7 @@ public class SigninActivity extends AppCompatActivity {
 
 
         //init firebase
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -98,13 +97,13 @@ public class SigninActivity extends AppCompatActivity {
                 if(!hasFocus && v.getId() == R.id.editTextEmail)
                 {
                     emailTouched = true;
-                    if(etEmail.getText().toString().equals(""))
+                    if(Objects.requireNonNull(etEmail.getText()).toString().equals(""))
                         etEmail.setError("Email is required");
                 }
                 else if(hasFocus && v.getId() == R.id.editTextPassword)
                 {
                     passwordTouched = true;
-                    if(etPassword.getText().toString().equals(""))
+                    if(Objects.requireNonNull(etPassword.getText()).toString().equals(""))
                         etPassword.setError("Password is required");
                 }
             }
@@ -152,7 +151,7 @@ public class SigninActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!HelperMethods.isPasswordValid(etPassword.getText().toString()))
+                if(!HelperMethods.isPasswordValid(Objects.requireNonNull(etPassword.getText()).toString()))
                 {
                     etPassword.setError("Password must contain 8 or more characters");
                 }
@@ -187,7 +186,8 @@ public class SigninActivity extends AppCompatActivity {
                     {
                         progressDialog.show();
 
-                        firebaseAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString())
+                        firebaseAuth.signInWithEmailAndPassword(Objects.requireNonNull(etEmail.getText()).toString(),
+                                Objects.requireNonNull(etPassword.getText()).toString())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {

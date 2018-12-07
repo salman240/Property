@@ -55,24 +55,30 @@ public class SplashActivity extends AppCompatActivity {
                     progressBar.setAlpha(0);
 
 //                checking if user is already signed in
-                if(firebaseAuth.getCurrentUser() != null)
+                if(firebaseAuth.getCurrentUser() == null)
                 {
-                        progressDialog.show();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                progressDialog.dismiss();
-                                Intent intent = new Intent(SplashActivity.this, SigninActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        }, 500);
-                    }
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressDialog.dismiss();
+                            Intent intent = new Intent(SplashActivity.this, SigninActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }, 500);
+                }
                 else
                 {
-                    Intent intent = new Intent(SplashActivity.this, SigninActivity.class);
-                    startActivity(intent);
-                    finish();
+                    progressDialog.show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressDialog.dismiss();
+                            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }, 500);
                 }
             }
         }, 2000);
@@ -88,4 +94,5 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
     }
-}
+
+}//class ends

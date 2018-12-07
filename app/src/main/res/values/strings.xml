@@ -9,5 +9,7 @@
     <string name="already_an_user">Already have an account?</string>
     <string name="sign_in_instead">Sign in</string>
     <string name="new_here">New here?</string>
+    <string name="remember_me">Remember Me?</string>
+    <string name="sign_out">Sign Out</string>
 
 </resources>
