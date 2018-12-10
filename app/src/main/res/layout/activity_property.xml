@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="4dp"
+    tools:context=".PropertyActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/cardBg"
+        app:cardElevation="6dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:id="@+id/textViewInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"/>
+
+            <com.rey.material.widget.Spinner
+                android:id="@+id/spinner_search_radius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:spn_label="Search radius"
+                app:spn_labelEnable="true"
+                app:spn_labelTextSize="18sp"
+                app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                app:spn_labelTextColor="@color/colorLightBlack"
+                android:layout_below="@id/textViewInfo"
+                android:padding="8dp"
+                app:spn_labelEllipsize="marquee"
+                android:layout_marginBottom="8dp"
+                style="@style/Material.Widget.Spinner"
+                app:spn_dividerColor="@color/colorLightBlack" />
+
+            <LinearLayout
+                android:id="@+id/linearPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinner_search_radius"
+                android:orientation="horizontal">
+
+                <com.rey.material.widget.Spinner
+                    android:id="@+id/spinner_min_price"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:spn_label="Min Price"
+                    app:spn_labelTextSize="18sp"
+                    app:spn_labelEnable="true"
+                    app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                    app:spn_labelTextColor="@color/colorLightBlack"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:spn_labelEllipsize="marquee"
+                    style="@style/Material.Widget.Spinner"
+                    app:spn_dividerColor="@color/colorLightBlack" />
+
+                <com.rey.material.widget.Spinner
+                    android:id="@+id/spinner_max_price"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:spn_label="Max Price"
+                    app:spn_labelTextSize="18sp"
+                    app:spn_labelEnable="true"
+                    app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                    app:spn_labelTextColor="@color/colorLightBlack"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:spn_labelEllipsize="marquee"
+                    style="@style/Material.Widget.Spinner"
+                    app:spn_dividerColor="@color/colorLightBlack" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearBed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearPrice"
+                android:orientation="horizontal">
+
+                <com.rey.material.widget.Spinner
+                    android:id="@+id/spinner_min_beds"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:spn_label="Min Beds"
+                    app:spn_labelTextSize="18sp"
+                    app:spn_labelEnable="true"
+                    app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                    app:spn_labelTextColor="@color/colorLightBlack"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:spn_labelEllipsize="marquee"
+                    style="@style/Material.Widget.Spinner"
+                    app:spn_dividerColor="@color/colorLightBlack" />
+
+                <com.rey.material.widget.Spinner
+                    android:id="@+id/spinner_max_beds"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:spn_label="Max Price"
+                    app:spn_labelTextSize="18sp"
+                    app:spn_labelEnable="true"
+                    app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                    app:spn_labelTextColor="@color/colorLightBlack"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:spn_labelEllipsize="marquee"
+                    style="@style/Material.Widget.Spinner"
+                    app:spn_dividerColor="@color/colorLightBlack" />
+
+            </LinearLayout>
+
+            <com.rey.material.widget.Spinner
+                android:id="@+id/spinner_prop_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:spn_label="Property Type"
+                app:spn_labelEnable="true"
+                app:spn_labelTextSize="18sp"
+                app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                app:spn_labelTextColor="@color/colorLightBlack"
+                android:layout_below="@id/linearBed"
+                android:padding="8dp"
+                app:spn_labelEllipsize="marquee"
+                android:layout_marginBottom="8dp"
+                style="@style/Material.Widget.Spinner"
+                app:spn_dividerColor="@color/colorLightBlack" />
+
+            <com.rey.material.widget.Spinner
+                android:id="@+id/spinner_added_to_site"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:spn_label="Added to site"
+                app:spn_labelEnable="true"
+                app:spn_labelTextSize="18sp"
+                app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                app:spn_labelTextColor="@color/colorLightBlack"
+                android:layout_below="@id/spinner_prop_type"
+                android:padding="8dp"
+                app:spn_labelEllipsize="marquee"
+                android:layout_marginBottom="8dp"
+                style="@style/Material.Widget.Spinner"
+                app:spn_dividerColor="@color/colorLightBlack" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</ScrollView>

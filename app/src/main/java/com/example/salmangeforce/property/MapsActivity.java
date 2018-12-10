@@ -32,7 +32,6 @@ import com.google.android.gms.maps.model.PolylineOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener,GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
-    private Spinner spinner;
     private LocationManager locationManager;
     private String provider;
     private final int FINE_LOCATION_PERMISSION = 9999;
@@ -55,7 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},FINE_LOCATION_PERMISSION);
         }
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {

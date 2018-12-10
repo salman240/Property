@@ -30,7 +30,7 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SigninActivity"
             android:windowSoftInputMode="stateHidden" />
@@ -51,7 +51,8 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".PropertyActivity"></activity>
     </application>
 
 </manifest>

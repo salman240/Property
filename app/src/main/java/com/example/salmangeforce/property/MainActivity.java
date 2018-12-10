@@ -1,5 +1,6 @@
 package com.example.salmangeforce.property;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -41,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.img_stories)
     ImageView imageViewStories;
+
+    @BindView(R.id.btnRent)
+    Button buttonRent;
+
+    @BindView(R.id.btnSale)
+    Button buttonSale;
 
     @BindView(R.id.cardPropertyMap)
     CardView cardViewPropertyMap;
@@ -105,20 +114,24 @@ public class MainActivity extends AppCompatActivity {
         materialSearchBar.setOnSearchActionListener(new SimpleOnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
-//                if(!enabled)
-//                    Toasty.info(MainActivity.this, "Showing Results in next century", Toast.LENGTH_LONG, true).show();
+                if(!enabled)
+                {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                }
+
             }
 
             @Override
             public void onSearchConfirmed(CharSequence text) {
-                if(text.length() > 0) {
-                    Toasty.info(MainActivity.this, "Showing Results in next century", Toast.LENGTH_LONG, true).show();
+                if(text.length() == 0) {
+                    Toasty.error(MainActivity.this, "Oops, you forgot to enter property", Toast.LENGTH_SHORT, true).show();
                     materialSearchBar.disableSearch();
-//                    search(text);
                 }
-                else {
-                    Toast.makeText(MainActivity.this, "Oops, you forgot to enter property", Toast.LENGTH_SHORT).show();
-                    materialSearchBar.disableSearch();
+                else
+                {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
                 }
             }
 
@@ -135,6 +148,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Opening new activity on search
+        final Intent intent = new Intent(MainActivity.this, PropertyActivity.class);
+
+        buttonRent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(materialSearchBar.getText().equals(""))
+                {
+                    Toasty.error(MainActivity.this, "Please provide area to search!", Toast.LENGTH_SHORT, true).show();
+                }
+                else
+                {
+                    intent.putExtra("prop_action", "rent");
+                    intent.putExtra("prop_area", materialSearchBar.getText());
+                    startActivity(intent);
+                }
+            }
+        });
+
+        buttonSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(materialSearchBar.getText().equals(""))
+                {
+                    Toasty.error(MainActivity.this, "Please provide area to search!", Toast.LENGTH_SHORT, true).show();
+                }
+                else
+                {
+                    intent.putExtra("prop_action", "sale");
+                    intent.putExtra("prop_area", materialSearchBar.getText());
+                    startActivity(intent);
+                }
+            }
+        });
+
     }
 
     @Override
@@ -179,4 +228,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unbinder.unbind();
     }
-}//class
+
+
+}//class ends
