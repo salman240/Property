@@ -1,4 +1,4 @@
-package com.example.salmangeforce.property;
+package com.example.salmangeforce.property.View;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.salmangeforce.property.Model.User;
+import com.example.salmangeforce.property.R;
 import com.example.salmangeforce.property.Utils.HelperMethods;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

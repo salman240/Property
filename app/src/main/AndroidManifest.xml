@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:replace="android:icon">
-        <activity android:name=".MainActivity">
+        <activity android:name=".View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,13 +29,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".View.SplashActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SigninActivity"
+            android:name=".View.SigninActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".View.SignupActivity"
             android:windowSoftInputMode="stateHidden" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -50,9 +50,10 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".View.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".PropertyActivity"></activity>
+        <activity android:name=".View.PropertyActivity"/>
+        <activity android:name=".View.ShowPropertyActivity"></activity>
     </application>
 
 </manifest>

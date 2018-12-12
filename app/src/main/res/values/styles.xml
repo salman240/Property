@@ -47,4 +47,10 @@
         <item name="android:padding">16dp</item>
     </style>
 
+    <style name="singleLineStyle">
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
 </resources>

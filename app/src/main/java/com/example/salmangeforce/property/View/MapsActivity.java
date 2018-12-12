@@ -1,4 +1,4 @@
-package com.example.salmangeforce.property;
+package com.example.salmangeforce.property.View;
 
 import android.Manifest;
 import android.content.Context;
@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.salmangeforce.property.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -28,6 +29,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
+
+import es.dmoral.toasty.Toasty;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener,GoogleMap.OnInfoWindowClickListener {
 
@@ -161,6 +164,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(Location location) {
+        if(location == null)
+        {
+            Toasty.error(MapsActivity.this, "Unable to get your last location", Toast.LENGTH_SHORT, true).show();
+            return;
+        }
+
+
         Double lat,lng;
         lat = location.getLatitude();
         lng = location.getLongitude();
@@ -216,4 +226,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onInfoWindowClick(Marker marker) {
         Toast.makeText(this,"Marker "+marker.getTitle()+" is clicked",Toast.LENGTH_SHORT).show();
     }
-}
+
+}//class ends

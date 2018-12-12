@@ -1,4 +1,4 @@
-package com.example.salmangeforce.property;
+package com.example.salmangeforce.property.View;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.salmangeforce.property.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;

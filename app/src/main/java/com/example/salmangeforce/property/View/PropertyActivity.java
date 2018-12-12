@@ -1,12 +1,15 @@
-package com.example.salmangeforce.property;
+package com.example.salmangeforce.property.View;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.Button;
+
+import com.example.salmangeforce.property.R;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -16,9 +19,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class PropertyActivity extends AppCompatActivity {
-
-    @BindView(R.id.textViewInfo)
-    TextView textViewInfo;
 
     @BindView(R.id.spinner_search_radius)
     com.rey.material.widget.Spinner spinnerSearchRadius;
@@ -40,6 +40,9 @@ public class PropertyActivity extends AppCompatActivity {
 
     @BindView(R.id.spinner_added_to_site)
     com.rey.material.widget.Spinner spinnerAddedToSite;
+
+    @BindView(R.id.buttonFindProperties)
+    Button buttonFindProperties;
 
     private Unbinder unbinder;
 
@@ -100,6 +103,14 @@ public class PropertyActivity extends AppCompatActivity {
         spinnerMaxBeds.setAdapter(maxBedsAdapter);
         spinnerPropType.setAdapter(propTypeAdapter);
         spinnerAddedToSite.setAdapter(addedToSiteAdapter);
+
+        buttonFindProperties.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PropertyActivity.this, ShowPropertyActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //Helper

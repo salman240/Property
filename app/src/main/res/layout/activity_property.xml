@@ -4,31 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="4dp"
-    tools:context=".PropertyActivity">
+    tools:context=".View.PropertyActivity">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/cardBg"
         app:cardElevation="6dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
+            android:id="@+id/rel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <TextView
-                android:id="@+id/textViewInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_marginTop="8dp"
-                android:textAlignment="center"/>
+            android:layout_height="wrap_content">
 
             <com.rey.material.widget.Spinner
                 android:id="@+id/spinner_search_radius"
@@ -39,10 +33,12 @@
                 app:spn_labelTextSize="18sp"
                 app:rd_style="@style/Material.Drawable.Ripple.Wave"
                 app:spn_labelTextColor="@color/colorLightBlack"
-                android:layout_below="@id/textViewInfo"
                 android:padding="8dp"
                 app:spn_labelEllipsize="marquee"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 style="@style/Material.Widget.Spinner"
                 app:spn_dividerColor="@color/colorLightBlack" />
 
@@ -50,6 +46,8 @@
                 android:id="@+id/linearPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_below="@id/spinner_search_radius"
                 android:orientation="horizontal">
 
@@ -64,7 +62,7 @@
                     app:rd_style="@style/Material.Drawable.Ripple.Wave"
                     app:spn_labelTextColor="@color/colorLightBlack"
                     android:padding="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="12dp"
                     app:spn_labelEllipsize="marquee"
                     style="@style/Material.Widget.Spinner"
                     app:spn_dividerColor="@color/colorLightBlack" />
@@ -80,7 +78,7 @@
                     app:rd_style="@style/Material.Drawable.Ripple.Wave"
                     app:spn_labelTextColor="@color/colorLightBlack"
                     android:padding="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="12dp"
                     app:spn_labelEllipsize="marquee"
                     style="@style/Material.Widget.Spinner"
                     app:spn_dividerColor="@color/colorLightBlack" />
@@ -91,6 +89,8 @@
                 android:id="@+id/linearBed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_below="@id/linearPrice"
                 android:orientation="horizontal">
 
@@ -105,7 +105,7 @@
                     app:rd_style="@style/Material.Drawable.Ripple.Wave"
                     app:spn_labelTextColor="@color/colorLightBlack"
                     android:padding="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="12dp"
                     app:spn_labelEllipsize="marquee"
                     style="@style/Material.Widget.Spinner"
                     app:spn_dividerColor="@color/colorLightBlack" />
@@ -121,7 +121,7 @@
                     app:rd_style="@style/Material.Drawable.Ripple.Wave"
                     app:spn_labelTextColor="@color/colorLightBlack"
                     android:padding="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="12dp"
                     app:spn_labelEllipsize="marquee"
                     style="@style/Material.Widget.Spinner"
                     app:spn_dividerColor="@color/colorLightBlack" />
@@ -140,7 +140,9 @@
                 android:layout_below="@id/linearBed"
                 android:padding="8dp"
                 app:spn_labelEllipsize="marquee"
-                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="12dp"
                 style="@style/Material.Widget.Spinner"
                 app:spn_dividerColor="@color/colorLightBlack" />
 
@@ -156,11 +158,38 @@
                 android:layout_below="@id/spinner_prop_type"
                 android:padding="8dp"
                 app:spn_labelEllipsize="marquee"
-                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="12dp"
                 style="@style/Material.Widget.Spinner"
                 app:spn_dividerColor="@color/colorLightBlack" />
 
+            <com.rey.material.widget.CheckBox
+                android:id="@+id/chk"
+                android:text="@string/include_under_offer_sold_stc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/spinner_added_to_site"/>
+
+            <Button
+                android:id="@+id/buttonFindProperties"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:text="@string/find_properties"
+                android:layout_marginTop="16dp"
+                android:layout_below="@id/chk"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
         </RelativeLayout>
+
+
+
 
     </android.support.v7.widget.CardView>
 

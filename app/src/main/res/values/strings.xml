@@ -24,5 +24,8 @@
     <string name="map_search">Map search</string>
     <string name="property_maps">Property maps</string>
     <string name="title_activity_maps">Map</string>
+    <string name="include_under_offer_sold_stc">Include Under Offer,Sold STC... ?</string>
+    <string name="find_properties">Find Properties</string>
+    <string name="no_properties_found">No properties found</string>
 
 </resources>
