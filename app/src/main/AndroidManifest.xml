@@ -22,11 +22,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:replace="android:icon">
         <activity android:name=".View.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".View.SplashActivity"
@@ -52,8 +48,15 @@
         <activity
             android:name=".View.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".View.PropertyActivity"/>
-        <activity android:name=".View.ShowPropertyActivity"></activity>
+        <activity android:name=".View.PropertyActivity" />
+        <activity android:name=".View.ShowPropertyActivity" />
+        <activity android:name=".View.ShowPropertyDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

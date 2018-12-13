@@ -1,5 +1,6 @@
 package com.example.salmangeforce.property.View;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,8 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.salmangeforce.property.Adapter.PropertyAdapter;
+import com.example.salmangeforce.property.Interface.onItemClickListener;
 import com.example.salmangeforce.property.R;
 
 import java.util.Objects;
@@ -19,6 +22,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import es.dmoral.toasty.Toasty;
 
 public class ShowPropertyActivity extends AppCompatActivity {
 
@@ -44,6 +48,8 @@ public class ShowPropertyActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
+
+
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
 //                layoutManager.getOrientation());
 //        recyclerView.addItemDecoration(dividerItemDecoration);
@@ -53,7 +59,14 @@ public class ShowPropertyActivity extends AppCompatActivity {
             @Override
             public void run() {
                 progressBar.setVisibility(View.GONE);
-                PropertyAdapter propertyAdapter = new PropertyAdapter();
+                PropertyAdapter propertyAdapter = new PropertyAdapter(new onItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position) {
+                        Toasty.normal(ShowPropertyActivity.this, "Position: " + position, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ShowPropertyActivity.this, ShowPropertyDetailActivity.class);
+                        startActivity(intent);
+                    }
+                });
                 recyclerView.setAdapter(propertyAdapter);
             }
         }, 2000);

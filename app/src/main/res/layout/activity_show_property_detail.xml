@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/cardBg"
+            app:cardElevation="6dp"
+            android:layout_margin="4dp"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:text="@string/_3_bedrooms_semi_detached_house_for_sale"/>
+
+                <TextView
+                    android:id="@+id/tvSubHead"
+                    android:layout_below="@id/tvHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/springfield_road_southborough"/>
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/web"
+                    android:layout_below="@id/tvSubHead"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/guide_price"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:id="@+id/tvGuidePrice"
+                    android:layout_below="@id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/web"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/_400_000"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:id="@+id/tvDesc"
+                    android:layout_below="@id/tvGuidePrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="@color/web"
+                    android:textStyle="bold"
+                    android:text="@string/description"/>
+
+                <TextView
+                    android:id="@+id/tvKeyFeatures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvDesc"
+                    android:textStyle="bold"
+                    android:text="@string/key_features"/>
+
+                <TextView
+                    android:id="@+id/tvFeatures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_below="@id/tvKeyFeatures"
+                    android:text="@string/living_room_nstylish_kitchen_nloft_space_ngarden_ndining_room"
+                    android:layout_marginStart="8dp" />
+
+
+                <TextView
+                    android:id="@+id/tvFullDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@id/tvFeatures"
+                    android:textStyle="bold"
+                    android:text="@string/full_description"/>
+
+                <TextView
+                    android:id="@+id/tvTenure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_below="@id/tvFullDesc"
+                    android:text="@string/tenure"/>
+
+                <TextView
+                    android:id="@+id/tvTenureData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_below="@id/tvFullDesc"
+                    android:layout_toRightOf="@id/tvTenure"
+                    android:text="@string/freehold"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/tvTenure" />
+
+                <TextView
+                    android:id="@+id/tvDescData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_below="@id/tvTenureData"
+                    android:text="@string/a_handsome_bay_fronted_exterior_of_painted_brickwork"/>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
